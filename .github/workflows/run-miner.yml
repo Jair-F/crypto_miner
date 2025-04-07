@@ -11,14 +11,19 @@ jobs:
       contents: write
     steps:
       - run: /workspaces/start.sh
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@changingFile
         with:
           persist-credentials: false
+          fetch-depth: 0
           path: 'changingFile'
-      - uses: qoomon/actions--setup-git@v1
+      # - uses: qoomon/actions--setup-git@v1
       - run: cat /dev/random | head -c 254 | base64 > changing_file
-      - run: git commit -am "keep_alive"
-      - run: git push origin changingFile
+      - name: Commit & Push changes
+        uses: actions-js/push@changingFile
+        with:
+          message: "keep alive"
+          branch: changingFile
+          github_token: ${{ secrets.GITHUB_TOKEN }}
       # - run: |
       #     date > generated.txt
       #     git config user.name github-actions
