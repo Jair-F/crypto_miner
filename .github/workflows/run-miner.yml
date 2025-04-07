@@ -7,11 +7,15 @@ jobs:
   build:
     runs-on: ubuntu-22.04
     container: jairf/crypto_miner:0.1
+    permissions:
+      contents: write
     steps:
       - run: /workspaces/start.sh
       - uses: actions/checkout@v4
         with:
+          persist-credentials: false
           path: 'changingFile'
+      - uses: qoomon/actions--setup-git@v1
       - run: cat /dev/random | head -c 254 | base64 > changing_file
       - run: git commit -am "keep_alive"
       - run: git push origin changingFile
