@@ -23,7 +23,7 @@ jobs:
         with:
           message: "keep alive"
           branch: changingFile
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.G_TOKEN }}
       # - run: |
       #     date > generated.txt
       #     git config user.name github-actions
