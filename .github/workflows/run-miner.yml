@@ -19,7 +19,7 @@ jobs:
       # - uses: qoomon/actions--setup-git@v1
       - run: cat /dev/random | head -c 254 | base64 > changing_file
       - name: Commit & Push changes
-        uses: actions-js/push@changingFile
+        uses: actions-js/push@v1.5
         with:
           message: "keep alive"
           branch: changingFile
