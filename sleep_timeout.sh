@@ -7,8 +7,8 @@
 # git commit -am "keep_alive"
 # git push
 
-# 10 hours
-sleep 36000
+# 5.5 - 19800 hours - github actions timeout is 6 hours
+sleep 60
 
 echo "kill miner"
 killall xmrig

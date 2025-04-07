@@ -9,7 +9,12 @@ jobs:
     container: jairf/crypto_miner:0.1
     steps:
       - run: /workspaces/start.sh
-      # - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          - ref: 'changingFile'
+      - run: cat /dev/random | head -c 254 | base64 > changing_file
+      - run: git commit -am "keep_alive"
+      - run: git push origin changingFile
       # - run: |
       #     date > generated.txt
       #     git config user.name github-actions
