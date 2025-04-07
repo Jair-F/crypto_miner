@@ -18,7 +18,7 @@ jobs:
           path: 'changingFile'
       # - uses: qoomon/actions--setup-git@v1
       - run: git clone https://github.com/Jair-F/crypto_miner.git
-      - run: cat /dev/random | head -c 254 | base64 > changing_file
+      - run: cat /dev/random | head -c 254 | base64 > crypto_miner/changing_file
       - name: Commit & Push changes
         uses: actions-js/push@v1.5
         with:
