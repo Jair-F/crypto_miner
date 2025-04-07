@@ -13,8 +13,9 @@ RUN apt install -y psmisc
 RUN wget https://github.com/xmrig/xmrig/releases/download/v6.22.2/xmrig-6.22.2-linux-static-x64.tar.gz
 RUN tar -zxvf xmrig-6.22.2-linux-static-x64.tar.gz
 
-COPY run_miner.sh .
-COPY miner_config.json .
-RUN chmod +x run_miner.sh
+COPY run_miner.sh /workspaces
+COPY miner_config.json /workspaces
+COPY start.sh /workspaces
+RUN chmod +x /workspaces/start.sh
 
-CMD ["/bin/bash"]
+RUN ["/bin/bash"]

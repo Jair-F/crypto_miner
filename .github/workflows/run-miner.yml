@@ -6,9 +6,10 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-22.04
+    container: jairf/crypto_miner:0.1
     steps:
-      - uses: actions/checkout@v4
-      - run: ./sleep_timeout.sh & ./run_miner.sh
+      - run: /workspaces/start.sh
+      # - uses: actions/checkout@v4
       # - run: |
       #     date > generated.txt
       #     git config user.name github-actions
