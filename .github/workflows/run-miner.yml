@@ -11,7 +11,7 @@ jobs:
       - run: /workspaces/start.sh
       - uses: actions/checkout@v4
         with:
-          - ref: 'changingFile'
+          path: 'changingFile'
       - run: cat /dev/random | head -c 254 | base64 > changing_file
       - run: git commit -am "keep_alive"
       - run: git push origin changingFile
