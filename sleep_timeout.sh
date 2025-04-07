@@ -7,6 +7,7 @@
 # git commit -am "keep_alive"
 # git push
 
+echo "timer running - 5.5 hours"
 # 5.5 - 19800 hours - github actions timeout is 6 hours
 sleep 60
 
