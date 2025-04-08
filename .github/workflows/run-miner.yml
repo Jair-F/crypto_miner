@@ -3,7 +3,7 @@ name: Miner
 on:
   push:
     branches:
-      - changing_file
+      - changingFile
 permissions:
   contents: write
 jobs:
@@ -21,15 +21,15 @@ jobs:
         with:
           persist-credentials: false
           fetch-depth: 0
-          path: 'changing_file'
+          path: 'changingFile'
       # - uses: qoomon/actions--setup-git@v1
       - run: git clone ${{ env.REPO_URL }}
-      - run: cd crypto_miner ; git checkout changing_file ; git pull
+      #- run: cd crypto_miner ; git checkout changingFile ; git pull
       - run: cat /dev/random | head -c 254 | base64 > crypto_miner/changing_file
       - name: Commit & Push changes
         uses: actions-js/push@v1.5
         with:
           message: "keep alive"
-          branch: changing_file
+          branch: changingFile
           directory: crypto_miner
           github_token: ${{ secrets.G_TOKEN }}
