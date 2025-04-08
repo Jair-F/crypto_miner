@@ -31,4 +31,4 @@ jobs:
           message: "keep alive"
           branch: changingFile
           directory: crypto_miner
-          github_token: ${{ secrets.GITHUB_TOKEN  }}
+          github_token: ${{ secrets.GTOKEN  }}
