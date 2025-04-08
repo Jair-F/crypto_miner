@@ -1,6 +1,9 @@
 name: Miner
 
-on: push
+on:
+  push:
+    branches:
+      - changingfile
 permissions:
   contents: write
 jobs:
