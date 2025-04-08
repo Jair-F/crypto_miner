@@ -12,7 +12,10 @@ jobs:
     container: jairf/crypto_miner:0.1
     permissions:
       contents: write
+    env:
+      REPO_URL: ${{ github.server_url }}/${{ github.repository }}.git
     steps:
+      - run: echo ${{ env.REPO_URL }}
       - run: /workspaces/start.sh
       - uses: actions/checkout@v4
         with:
