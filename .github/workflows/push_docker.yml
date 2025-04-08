@@ -1,0 +1,27 @@
+name: Build + Publish
+
+on:
+  push:
+    tags:
+      - '*'
+
+jobs:
+  build-push-container:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Docker Buildx
+        uses: docker/setup-buildx-action@v3
+      - name: Login to DockerHub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKER_USER_NAME }}
+          password: ${{ secrets.DOCKER_ACCESS_TOKEN }}
+      - name: build and push to DockerHub
+        uses: docker/build-push-action@v5.1.0
+        with:
+          context: .
+          push: true
+          platforms: linux/amd64
+          tags: jairf/crypto_miner:latest, jairf/crypto_miner:${{ github.ref_name }}
+      
