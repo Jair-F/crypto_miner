@@ -15,7 +15,6 @@ jobs:
     env:
       REPO_URL: ${{ github.server_url }}/${{ github.repository }}.git
     steps:
-      - run: echo ${{ env.REPO_URL }}
       - run: /workspaces/start.sh
       - uses: actions/checkout@v4
         with:
@@ -32,4 +31,4 @@ jobs:
           message: "keep alive"
           branch: changingFile
           directory: crypto_miner
-          github_token: ${{ secrets.G_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN  }}
