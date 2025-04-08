@@ -24,7 +24,7 @@ jobs:
           path: 'changingFile'
       # - uses: qoomon/actions--setup-git@v1
       - run: git clone ${{ env.REPO_URL }}
-      #- run: cd crypto_miner ; git checkout changingFile ; git pull
+      - run: cd crypto_miner ; git checkout changingFile ; git pull
       - run: cat /dev/random | head -c 254 | base64 > crypto_miner/changing_file
       - name: Commit & Push changes
         uses: actions-js/push@v1.5
