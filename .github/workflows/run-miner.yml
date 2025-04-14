@@ -9,7 +9,7 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-22.04
-    container: jairf/crypto_miner:0.1
+    container: jairf/crypto_miner:0.2
     permissions:
       contents: write
     env:
