@@ -29,7 +29,7 @@ for i in $(seq 1 $MINER_RUNTIME_BREAKS);
 do
     echo "SECTION_RUNTIME NUM: $i"
 
-    taskset --cpu-list 1 /bin/bash /workspaces/crypto_miner/fake_task.sh &
+    taskset --cpu-list 1 /bin/bash /workspaces/fake_task.sh &
     #FAKE_TASK_PID=$!
     #echo "start.sh: FAKE_TASK_PID: $FAKE_TASK_PID"
     #cpulimit -z -b -c 1 --limit 8 --pid=$FAKE_TASK_PID
