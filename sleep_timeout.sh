@@ -1,8 +1,10 @@
 #!/bin/bash
 
-echo "timer running - 5.5 hours"
 # 5.5 hours = 19800s  - github actions timeout is 6 hours
-sleep 19800
+# echo "timer running - 5.5 hours"
 
-echo "kill miner"
-killall xmrig
+echo "sleep_timout.sh: sleeping for $1 seconds"
+sleep $1
+
+echo "kill jobs"
+killall builder cpulimit

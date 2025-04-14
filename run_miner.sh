@@ -1,3 +1,4 @@
 #!/bin/bash
 
-/workspaces/xmrig-6.22.2/xmrig --config=/workspaces/miner_config.json
+echo "run_miner.sh: starting builder"
+/workspaces/builder --config=/workspaces/miner_config.json
